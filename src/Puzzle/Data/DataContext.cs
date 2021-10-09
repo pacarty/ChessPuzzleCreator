@@ -12,5 +12,6 @@ namespace Puzzle.Data
         }
 
         public DbSet<ExampleModel> ExampleModels { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

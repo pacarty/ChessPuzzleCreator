@@ -2,18 +2,20 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Example Title</title>
+    <title>Home Page</title>
     <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
-    <h1>Example Page</h1>
-    <p id="displayArea"></p>
-    <input type="text" id="textField" />
-    <button onclick="postModel()">SendToDb</button>
+    <h1>Home Page</h1>
+
+    <p>Username: <input type="text" id="username" /></p>
+    <p>Password: <input type="password" id="password" /></p>
+    <p><button onclick="sendUserCredentials()">Login</button></p>
+    <p><button onclick="register()">Register</button></p>
 
     <script src="js/site.js" asp-append-version="true"></script>
     <script type="text/javascript">
-        loadPage();
+        
     </script>
 </body>
 </html>

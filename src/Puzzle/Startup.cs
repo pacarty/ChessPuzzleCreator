@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Puzzle.Data;
+using Puzzle.Services;
 
 namespace Puzzle
 {
@@ -28,6 +29,8 @@ namespace Puzzle
 
             services.AddDbContext<DataContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DevConnection")));
+
+            services.AddTransient<IUserService, UserService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

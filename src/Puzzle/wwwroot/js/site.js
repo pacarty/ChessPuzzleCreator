@@ -1,4 +1,4 @@
-function loadPage() {
+function loadExamplePage() {
     document.getElementById("displayArea").innerHTML = "placeholder";
 
     var xhttp = new XMLHttpRequest();
@@ -27,4 +27,37 @@ function postModel() {
 
     xhttp.open("POST", "api/Example/PostModel");
     xhttp.send(data);
+}
+
+function register() {
+    window.location = "user/register.html";
+}
+
+function registerNewUser() {
+
+    var username = document.getElementById("newUsername").value;
+    var password = document.getElementById("newPassword").value;
+
+    console.log(username);
+    console.log(password);
+
+    if (username == "" || password == "") {
+        alert("Fields cannot be empty");
+    } else {
+        
+        var data = new FormData();
+        data.append("username", username);
+        data.append("password", password);
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+            }
+        };
+
+        xhttp.open("POST", "../api/Users/RegisterUser");
+        xhttp.send(data);
+
+    }
 }
